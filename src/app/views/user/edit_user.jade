@@ -1,0 +1,90 @@
+extends ../layout.jade
+
+block menu
+	li(class="active")
+		a(href="/user/create")
+			i(class="pe-7s-users")
+			p Registrar Usuario
+	li(class="active")
+		a(href="/user/read",style="background: #6FBBFF")
+			i(class="pe-7s-notebook")
+			p Consultar Usuario
+			
+block contenido
+
+	// Miga de Pan
+	ol(class="breadcrumb")
+		li
+			a(href="/user/read") Usuarios
+		li
+			a(href="/user/read") Consultar Usuarios
+		li(class="active") Editar Usuario
+		
+
+	div(class="header")
+		h4(class="title") Editar Usuario
+
+		br
+
+		<!-- Formulario para Crear Usuarios -->
+		form(action="/user/update",method="post")
+
+			<!-- Id Oculto -->
+			div(class="form-group")
+					input(type="hidden",name="id",
+					placeholder="Ingresar el Nombre",id="id",class="form-control",value="#{data[0].id}")
+
+			<!-- Columna Izquierda del Formulario -->
+			div(class="col-md-6")
+
+				div(class="form-group")
+					label(for="name") Nombre:
+					input(type="text",name="name",
+					placeholder="Ingresar el Nombre",id="name",class="form-control",value="#{data[0].name}")
+
+				div(class="form-group")
+					label(for="address") Direccion:
+					input(type="text",name="address",
+					placeholder="Ingresar la Direccion",id="address",class="form-control",value="#{data[0].address}")
+
+				div(class="form-group")
+					label(for="state") Departamento:
+					input(type="text",name="state",
+					placeholder="Ingresar el Departamento",id="state",class="form-control",value="#{data[0].state}")
+
+				div(class="form-group")
+					label(for="phone") Telefono:
+					input(type="text",name="phone",
+					placeholder="Ingresar el Telefono",id="phone",class="form-control",value="#{data[0].phone}")
+
+				div(class="form-group")
+					label(for="birthdate") Fecha de Nacimiento:
+					input(type="date",name="birthdate",
+					placeholder="Ingresar la Fecha",id="birthdate",class="form-control",value="#{data[0].birthdate}")
+
+			<!-- Columna Derecha del Formulario -->
+			div(class="col-md-6")
+
+				div(class="form-group")
+					label(for="last_name") Apellido:
+					input(type="text",name="last_name",placeholder="Ingresar el Apellido",id="last_name",class="form-control",value="#{data[0].last_name}")
+
+				div(class="form-group")
+					label(for="city") Ciudad:
+					input(type="text",name="city",
+					placeholder="Ingresar la Ciudad",id="city",class="form-control",value="#{data[0].city}")
+
+				div(class="form-group")
+					label(for="country") Pais:
+					input(type="text",name="country",
+					placeholder="Ingresar el Pais",id="country",class="form-control",value="#{data[0].country}")
+
+				div(class="form-group")
+					label(for="area_code") Codigo de Area:
+					input(type="text",name="area_code",
+					placeholder="Ingresar el Codigo",id="area_code",class="form-control",value="#{data[0].area_code}")
+
+
+				div
+				input(type="submit",value="Editar Datos",class="btn btn-primary",style="float: right;")
+							

@@ -1,0 +1,58 @@
+extends ../layout.jade
+
+block menu
+	li(class="active")
+		a(href="/user/create")
+			i(class="pe-7s-users")
+			p Registrar Usuario
+	li(class="active")
+		a(href="/user/read",style="background: #6FBBFF")
+			i(class="pe-7s-notebook")
+			p Consultar Usuario
+
+block contenido
+
+	// Miga de Pan
+	ol(class="breadcrumb")
+		li
+			a(href="/read_user") Usuarios
+		li(class="active") Consultar Usuario
+	
+
+	div(class="header")
+		h4(class="title") Consultar Usuarios
+
+	br
+
+	table(class="table table-bordered")
+		thead
+			tr
+				th(style="color:black; font-weight: bold") Id
+				th(style="color:black; font-weight: bold") Nombre
+				th(style="color:black; font-weight: bold") Direccion
+				th(style="color:black; font-weight: bold") Telefono
+				th(style="color:black; font-weight: bold") Fecha Nacimiento
+				th(style="color:black; font-weight: bold") Mostrar
+				th(style="color:black; font-weight: bold") Editar
+				th(style="color:black; font-weight: bold") Eliminar
+
+		tbody
+			-for (var i = 0; i < users.length; i++){
+				tr
+					td #{users[i].id}
+					td #{users[i].name} #{users[i].last_name}
+					td #{users[i].address}
+					td #{users[i].phone}
+					td #{users[i].birthdate}
+
+					td: center
+							a(href="/user/show/#{users[i].id}")
+								img(src='/img/Iconos/Mostrar.png')
+					td: center
+							a(href="/user/edit/#{users[i].id}")
+								img(src='/img/Iconos/Editar.png')
+					td: center
+							a(href="/user/delete/#{users[i].id}",onclick="return confirm('Desea Eliminar el Usuario?')")
+								img(src='/img/Iconos/Eliminar.png')
+			-}
+							

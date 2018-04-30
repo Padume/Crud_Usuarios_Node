@@ -1,0 +1,23 @@
+{
+  "name": "crud_usuarios",
+  "version": "1.0.0",
+  "description": "Crud de Usuarios usando Node Js ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Crud",
+    "Users"
+  ],
+  "author": "Luis Hernando Valencia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jade": "^1.11.0",
+    "mongoose": "^5.0.14",
+    "mysql": "^2.15.0"
+  }
+}
